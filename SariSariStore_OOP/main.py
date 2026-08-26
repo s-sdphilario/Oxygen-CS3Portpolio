@@ -33,11 +33,26 @@ class Product:
         if not self.products:
             print("No products available.")
             return
+    def show_all_products(self):
+            if not self.products:
+                print("No products available.")
+                return
         print("\n---PRODUCT LIST---")
         print("{'No. ' :<5}{'Name' :<25}{'Price' :<10}{'Quantity' :<10}")
         print("==" * 50)
         for i, p in enumerate(self.products, 1):
             print("{i:<5}{p.name:<25}{p.price:<10}{p.quantity:<10}")
+    def search_product(self, name):
+            for p in self.products:
+                if p.name.lower() == name.lower():
+                    print("\nProduct found:")
+                    print("Name: ", p.name)
+                    print("Price: ₱", p.price)
+                    print("Quantity: ", p.quantity)
+                    return
+            print("Product not found.")
+        
+            
         
     
 
