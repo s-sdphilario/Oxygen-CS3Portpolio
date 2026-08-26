@@ -14,43 +14,49 @@ class Product:
         else:
             print("Not enough stock.")
     def restock(self, amount):
-        if amount<=0:
+        if amount <= 0:
             print("Amount must be greater than 0.")
         else:
             self.quantity += amount
-            print("Restock {amount} item(s).")
-            print("New quantity: ", self.quantity)
+            print(f"Restock {amount} item(s).")
+            print("New quantity:", self.quantity)
+
     def remove(self, amount):
-        if amount<=0:
+        if amount <= 0:
             print("Amount must be greater than 0.")
         elif amount <= self.quantity:
             self.quantity -= amount
-            print("Remove {amount} item(s).")
-            print("New quantity: ", self.quantity)
+            print(f"Remove {amount} item(s).")
+            print("New quantity:", self.quantity)
         else:
             print("Not enough stock to remove that amount.")
-    def     show_all_products(self):
+class ProductInventory:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def show_all_products(self):
         if not self.products:
             print("No products available.")
             return
-    def show_all_products(self):
-            if not self.products:
-                print("No products available.")
-                return
+
         print("\n---PRODUCT LIST---")
-        print("{'No. ' :<5}{'Name' :<25}{'Price' :<10}{'Quantity' :<10}")
+        print(f'{"No.":<5}{"Name":<25}{"Price":<10}{"Quantity":<10}')
         print("==" * 50)
         for i, p in enumerate(self.products, 1):
-            print("{i:<5}{p.name:<25}{p.price:<10}{p.quantity:<10}")
+            print(f"{i:<5}{p.name:<25}{p.price:<10}{p.quantity:<10}")
+
     def search_product(self, name):
-            for p in self.products:
-                if p.name.lower() == name.lower():
-                    print("\nProduct found:")
-                    print("Name: ", p.name)
-                    print("Price: ₱", p.price)
-                    print("Quantity: ", p.quantity)
-                    return
-            print("Product not found.")
+        for p in self.products:
+            if p.name.lower() == name.lower():
+                print("\nProduct found:")
+                print("Name:", p.name)
+                print("Price: ₱", p.price)
+                print("Quantity:", p.quantity)
+                return
+        print("Product not found.")
         
             
         
