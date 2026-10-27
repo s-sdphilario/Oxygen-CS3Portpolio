@@ -1,0 +1,38 @@
+name = input("What is your name? ")
+print("Hello, ", name, "!")
+number = int(input("Give me a number:"))
+if number>0:
+    print("The number is positive.")
+elif number<0:
+    print("The number is negative.")
+else:
+    print("Zero.")
+number1 = int(input("Give me a number: "))
+number2 = int(input("Give me another number: "))
+if number1>number2:
+    print(number1)
+elif number1<number2:
+    print(number2)
+else:
+    print("Both numbers are equal.")
+score = int(input("What is your score? "))
+if score>=75:
+    print("You passed.")
+else:
+    print("You failed.")
+odd_even = int(input("Give me a number: "))
+if odd_even%2==0:
+    print("Even.")
+else:
+    print("Odd.")
+age = int(input("How old are you? "))
+if age<18:
+    print("You are a minor.")
+else:
+    print("You are an adult.")
+n1 = int(input("Give me a number: "))
+n2 = int(input("Give me another number: "))
+if n1%n2 ==0:
+    print("Divisible.")
+else:
+    print("Not divisible.")

@@ -1,0 +1,63 @@
+class Material:
+    def __init__(self, title, author):
+        self._title = title
+        self._author = author
+
+    def display_info(self):
+            print(f"Title: {self.title}")
+            print(f"Author: {self.author}")
+    
+    @property
+    def title(self):
+        return self._work_name
+
+    @property
+    def author(self):
+        return self._author
+
+class Book(Material):
+    def __init__(self, title, author, pages):
+        super().__init__(title, author)
+        self._pages = int(pages)
+
+    def display_info(self):
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+        print(f"Pages: {self.pages}")
+
+    @property
+    def pages(self):
+        if self._pages <= 0:
+            print("Number of pages cannot be negative or zero.")
+        else:
+            return self._pages
+
+class Magazine(Material):
+    def __init__(self, title, author, issue_number):
+        super().__init__(title, author)
+        self._issue_number = int(issue_number)
+
+    def display_info(self):
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+        print(f"Issue Number: {self.issue_number}")
+
+    @property
+    def issue_number(self):
+        if self._issue_number <= 0:
+            print("Issue number cannot be negative or zero.")
+        else:
+            return self._issue_number
+
+mat1 = Material("Journals A to Z - Oxford Academic", "Oxford University Press")
+book1 = Book("The Hobbit", "J.R.R. Tolkien", 310)
+mag1 = Magazine("National Geographic", "Various Authors", 202)
+
+print("Material Information:")
+mat1.display_info()
+
+print("Book Information:")
+book1.display_info()
+
+print("Magazine Information:")
+mag1.display_info()
