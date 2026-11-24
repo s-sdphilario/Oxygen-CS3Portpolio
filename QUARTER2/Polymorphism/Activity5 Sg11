@@ -1,0 +1,10 @@
+# These methods (move(), special_move(), use()) are all examples of duck typing when it comes to Polymorphism. 
+# They are all different classes, but they can all be called and used despite not being related to each other. 
+# This is because they all have the same method name.
+
+# This activity shows polymorphism in gaming context as it puts into practice how, despite different 'characters' have their own unique abilities, they can all be used in the same way. 
+# Regardless of what the ability does, it is still registered as 'ultimate' or 'skill 1, 2, 3...'
+
+# For example, weapons in games. A staff, a sword, and a bow are all different types of weapons, but they can all have an 'attack()' method.
+# This attack() method can be called for all these weapons, but they will have a different output.
+# For example, the staff casts a spell, the sword slices, and the bow shoots.

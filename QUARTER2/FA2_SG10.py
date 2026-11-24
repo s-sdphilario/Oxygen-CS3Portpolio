@@ -5,8 +5,14 @@ class Patient:
 
     def display_info(self):
         print(f"Name: {self.name}")
+
+    def display_patient_type(self):
+        print("Patient Type: Regular Patient")
+
+    def calculate_bill(self):
         print(f"Original Bill Amount: {self.bill_amount}")
         print(f"Final Bill Amount: {self.bill_amount}")
+
     @property
     def name(self):
         return self._name
@@ -28,8 +34,13 @@ class Senior(Patient):
 
     def display_info(self):
         print(f"Name: {self.name}")
+    
+    def display_patient_type(self):
+        print("Patient Type: Senior Citizen")
+    
+    def calculate_bill(self):
         print(f"Original Bill Amount: {self.bill_amount}")
-        print(f"Final Bill Amount: {self.bill_amount * 0.8}")
+        print(f"Final Bill Amount: {self.bill_amount*0.8}")
 
     @property
     def bill_amount(self):
@@ -47,14 +58,19 @@ class PhilHealth(Patient):
     def __init__(self, name, bill_amount):
         super().__init__(name, bill_amount)
 
+    def display_info(self):
+            print(f"Name: {self.name}")
+    
+    def display_patient_type(self):
+        print("Patient Type: PhilHealth Member")
+    
+    def calculate_bill(self):
+        print(f"Original Bill Amount: {self.bill_amount}")
+        print(f"Final Bill Amount: {self.bill_amount}")
+
     @property
     def bill_amount(self):
         return self._bill_amount
-
-    def display_info(self):
-        print(f"Name: {self.name}")
-        print(f"Original Bill Amount: {self.bill_amount}")
-        print(f"Final Bill Amount: {self.bill_amount * 0.85}")
 
     @bill_amount.setter
     def bill_amount(self, new_bill_amount):
@@ -69,9 +85,10 @@ senior_patient = Senior("Maria Santos", 15000)
 philhealth_patient = PhilHealth("Pedro Reyes", 15000)
 
 print("Hospital Billing System:")
-print("---")
-reg_patient.display_info()
-print("---")
-senior_patient.display_info()
-print("---")
-philhealth_patient.display_info()
+print("------------------------")
+patients = [reg_patient, senior_patient, philhealth_patient]
+for patient in patients:
+    patient.display_info()
+    patient.display_patient_type()
+    patient.calculate_bill()
+    print()

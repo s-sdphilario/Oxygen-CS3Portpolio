@@ -1,0 +1,25 @@
+# According to the video, duck typing is another way of achieving polymorphism; objects must have the minimum necessary attributions. As long as it has the required methods, it may be treated like an object of that type.
+# The car class needed a 'speak' method instead of a 'honk' method in order to work inside the same loop as the Dog and Cat classes. Even though it did not directly inherit from a parent Animal class, it still has a function/method that is required to be treated like an Animal object.
+
+class Car:
+    def move(self):
+        print("The car drives on the road.")
+
+class Boat:
+    def move(self):
+        print("The boat sails on water.")
+
+class Drone:
+    def move(self):
+        print("The drone flies in the sky.")
+
+car1 = Car()
+boat1 = Boat()
+drone1 = Drone()
+
+def start_trip(vehicle):
+    vehicle.move()
+
+vehicles = [car1, boat1, drone1]
+for vehicle in vehicles:
+    start_trip(vehicle)

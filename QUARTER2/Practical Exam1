@@ -1,0 +1,100 @@
+class PhysicsInstrument:
+    def __init__(self, name, measurement):
+        self.name = name
+        self.__measurement = measurement
+
+    @property
+    def measurement(self):
+        return self.__measurement
+
+    @measurement.setter
+    def measurement(self, measurement):
+        self.__measurement = measurement
+
+    def display_reading(self):
+        print(f"{self.name}: {self.measurement}")
+
+class Thermometer(PhysicsInstrument):
+    def __init__(self, name, measurement):
+        super().__init__(name, measurement)
+
+    @property
+    def temperature(self):
+        if self.measurement < 20:
+            return "Cool Temperature"
+        elif 20 <= self.measurement <= 30:
+            return "Normal Temperature"
+        else:
+            return "High Temperature"
+
+    def display_reading(self):
+        print(f"Instrument: {self.name}")
+        print(f"Temperature: {self.measurement} degrees Celsius")
+        print(f"Temperature Condition: {self.temperature}")
+        
+
+class Speedometer(PhysicsInstrument):
+    def __init__(self, name, measurement, time):
+        super().__init__(name, measurement)
+        self.__time = time
+
+
+    @property
+    def time(self):
+        return self.__time
+
+    @property
+    def speed(self):
+        if self.time and self.measurement > 0:
+            return self.measurement/self.time
+
+    def display_reading(self):
+        print(f"Instrument: {self.name}")
+        print(f"Distance: {self.measurement} km")
+        print(f"Time: {self.time} hours")
+        print(f"Calculated Speed: {self.speed} km/h")
+
+class ForceMeter(PhysicsInstrument):
+    def __init__(self, name, measurement, mass, acceleration):
+        super().__init__(name, measurement)
+        self.__mass = mass
+        self.__acceleration = acceleration
+
+    @property
+    def mass(self):
+        return self.__mass
+
+    @property
+    def acceleration(self):
+        return self.__acceleration
+
+    @property
+    def measurement(self):
+        if self.mass and self.acceleration > 0:
+            return self.mass * self.acceleration
+
+    def display_reading(self):
+        print(f"Instrument: {self.name}")
+        print(f"Mass: {self.mass} kg")
+        print(f"Acceleration: {self.acceleration} m/s^2")
+        print(f"Calculated Force: {self.measurement} N")
+print("=============================")
+print("Smart Physics Laboratory Report")
+print("=============================")
+print("Physics Measurements:")
+thermometer = Thermometer("Thermometer", float(input("Temperature in Celsius: ")))
+speedometer = Speedometer("Speedometer", float(input("Distance in km: ")), float(input("Time in hours: ")))
+force_meter = ForceMeter("Force Meter", 0, float(input("Mass in kg: ")), float(input("Acceleration in m/s^2: ")))
+
+print("=============================")
+print("Physics Calculation Results:")
+print("=============================")
+
+instruments = [thermometer, speedometer, force_meter]
+for instrument in [thermometer, speedometer, force_meter]:
+    print("----------------------------")
+    instrument.display_reading()
+
+print("=============================")
+print("End of Laboratory Report")
+print("=============================")
